@@ -1,0 +1,122 @@
+{
+  "id": "traffic_camera",
+  "title": "Those boxes on poles are NOT all cameras",
+  "scene": "traffic_camera",
+  "fps": 30,
+  "resolution": [1080, 1920],
+  "language": "en",
+  "fact_checked": false,
+  "sources": [],
+  "voice": {},
+  "music": { "file": null, "volume": 0.15 },
+  "style": { "outline": 0.025 },
+  "shots": [
+    {
+      "id": "hook",
+      "duration": 3.5,
+      "narration": "That box on the pole? Most people think it's *just* a camera.",
+      "camera": {
+        "from": { "pos": [9, -36, 15], "target": [1, 0, 1], "lens": 30 },
+        "to":   { "pos": [7, -28, 11], "target": [2, 0, 2.5], "lens": 32 }
+      },
+      "events": [ { "t": 0, "action": "rec_blink", "duration": 3.5 } ],
+      "overlays": [
+        { "type": "title", "text": "Those boxes on poles are *NOT* all cameras", "end": 3.3 }
+      ],
+      "sfx": [ { "t": 0.0, "name": "whoosh" } ]
+    },
+    {
+      "id": "reveal_pole",
+      "duration": 5.5,
+      "narration": "It's usually three parts working together: a *radar*, a *camera*, and a *flash*.",
+      "camera": {
+        "from": { "pos": [-2, -12, 6], "target": { "anchor": "pole_top", "offset": [-1, 0, -1.2] }, "lens": 32 },
+        "to":   { "pos": [0.5, -7.5, 5.2], "target": [3.2, 0, 4.8], "lens": 35 }
+      },
+      "overlays": [
+        { "type": "label", "text": "RADAR",  "anchor": "radar_unit",  "start": 1.4 },
+        { "type": "label", "text": "CAMERA", "anchor": "camera_unit", "start": 2.4, "offset": [0.12, -0.06] },
+        { "type": "label", "text": "FLASH",  "anchor": "flash_unit",  "start": 3.4, "offset": [0.14, 0.04] }
+      ],
+      "sfx": [
+        { "t": 1.4, "name": "pop" }, { "t": 2.4, "name": "pop" }, { "t": 3.4, "name": "pop" }
+      ]
+    },
+    {
+      "id": "sensor",
+      "duration": 4.5,
+      "narration": "Some systems also hide wire loops in the road that sense a car passing over them.",
+      "camera": {
+        "from": { "pos": [6, -17, 5], "target": "road_sensor", "lens": 30 },
+        "to":   { "pos": [4.5, -13.5, 3.2], "target": "road_sensor", "lens": 32 }
+      },
+      "overlays": [
+        { "type": "label", "text": "SENSOR LOOPS", "anchor": "road_sensor", "start": 1.0, "offset": [0, -0.1] }
+      ],
+      "sfx": [ { "t": 1.0, "name": "pop" } ]
+    },
+    {
+      "id": "car_approach",
+      "duration": 6.0,
+      "narration": "The radar bounces waves off your car and works out your speed from the echo.",
+      "camera": {
+        "from": { "pos": [-3, -6, 4.5], "target": [1.75, -16, 0.8], "lens": 30 },
+        "to":   { "pos": [-3, -5, 4.5], "target": [1.75, -7, 1.0], "lens": 30 }
+      },
+      "events": [
+        { "t": 0.0, "action": "car_drive", "duration": 8.0, "params": { "from": [1.75, -40, 0], "to": [1.75, 8, 0] } },
+        { "t": 0.6, "action": "radar_on" }
+      ],
+      "overlays": [
+        { "type": "counter", "from": 0, "to": 72, "suffix": " km/h", "sub": "LIMIT 50 km/h",
+          "alert_above": 50, "start": 1.0, "count_time": 3.5, "pos": [0.5, 0.3] }
+      ],
+      "sfx": [ { "t": 0.6, "name": "beep" }, { "t": 4.6, "name": "alarm", "gain": 0.6 } ]
+    },
+    {
+      "id": "flash",
+      "duration": 4.0,
+      "narration": "Over the limit? The camera fires, often with an *infrared* flash you can't even see.",
+      "camera": {
+        "from": { "pos": [-1.5, -4.5, 2.4], "target": [2.5, 0, 3.4], "lens": 28 },
+        "to":   { "pos": [-1.0, -4.0, 2.6], "target": [2.6, 0, 3.6], "lens": 30 }
+      },
+      "events": [
+        { "t": 0.3, "action": "camera_flash" },
+        { "t": 1.4, "action": "radar_off" }
+      ],
+      "overlays": [
+        { "type": "flash", "start": 0.3, "duration": 0.4 },
+        { "type": "label", "text": "NUMBER PLATE", "anchor": "car_plate", "start": 0.8, "end": 3.0, "offset": [-0.1, 0.08] }
+      ],
+      "sfx": [ { "t": 0.3, "name": "click" } ]
+    },
+    {
+      "id": "plate",
+      "duration": 5.0,
+      "narration": "Software reads your number plate, and in many places a *person* checks the photo before a fine is sent.",
+      "camera": {
+        "from": { "pos": [9, -22, 12], "target": [1, 2, 1], "lens": 30 },
+        "to":   { "pos": [8, -19, 10], "target": [1, 2, 1.5], "lens": 30 }
+      },
+      "overlays": [
+        { "type": "card", "title": "What happens next", "items": ["Photo taken", "Plate read by software", "Human check, then fine"],
+          "start": 0.3, "stagger": 0.7, "pos": [0.5, 0.32] }
+      ],
+      "sfx": [ { "t": 0.55, "name": "tick" }, { "t": 1.25, "name": "tick" }, { "t": 1.95, "name": "tick" } ]
+    },
+    {
+      "id": "outro",
+      "duration": 4.0,
+      "narration": "Next time: the box on your wall that knows when you boil the kettle.",
+      "camera": {
+        "orbit": { "center": [0, 0, 1], "radius": 26, "height": 15, "start": -100, "end": -72, "lens": 30 }
+      },
+      "events": [ { "t": 0, "action": "rec_blink", "duration": 4.0 } ],
+      "overlays": [
+        { "type": "title", "text": "Next: *SMART METERS*", "box": true, "start": 0.4, "pos": [0.5, 0.2] }
+      ],
+      "sfx": [ { "t": 0.4, "name": "ding" } ]
+    }
+  ]
+}

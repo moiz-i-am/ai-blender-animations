@@ -1,0 +1,26 @@
+# renders, audio, videos
+output/
+*.mp4
+*.blend1
+
+# machine-specific config + secrets
+config/local.json
+.env
+
+# python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# large downloaded assets (keep the folders, commit small/licensed files deliberately)
+assets/models/*
+!assets/models/README.md
+assets/music/*
+!assets/music/README.md
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

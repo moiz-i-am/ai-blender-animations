@@ -1,0 +1,6 @@
+# Optional: free local voice (Kokoro) + word-accurate caption timing (faster-whisper).
+# On Windows with an NVIDIA GPU, install a CUDA build of PyTorch FIRST (see docs/SETUP.md), then:
+#   pip install -r requirements-voice.txt
+kokoro>=0.9.4
+soundfile>=0.12
+faster-whisper>=1.0

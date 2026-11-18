@@ -1,0 +1,46 @@
+{
+  "id": "REPLACE_ME",
+  "title": "Hook title shown in the first shot",
+  "scene": "REPLACE_ME",
+  "fps": 30,
+  "resolution": [1080, 1920],
+  "language": "en",
+  "fact_checked": false,
+  "sources": [],
+  "voice": {},
+  "music": { "file": null, "volume": 0.15 },
+  "style": { "outline": 0.025 },
+  "shots": [
+    {
+      "id": "hook",
+      "duration": 3.5,
+      "narration": "A one-line hook that makes people stay.",
+      "camera": {
+        "from": { "pos": [12, -30, 14], "target": [3, 0, 1], "lens": 30 },
+        "to":   { "pos": [10, -24, 10], "target": "hero", "lens": 32 }
+      },
+      "overlays": [ { "type": "title", "text": "Hook *TITLE* here", "end": 3.3 } ],
+      "sfx": [ { "t": 0, "name": "whoosh" } ]
+    },
+    {
+      "id": "reveal",
+      "duration": 5.0,
+      "narration": "Explain the first surprising fact.",
+      "camera": {
+        "from": { "pos": [2, -6, 2.5], "target": "hero", "lens": 35 },
+        "to":   { "pos": [3, -4, 2.0], "target": "hero", "lens": 40 }
+      },
+      "events": [ { "t": 0.5, "action": "led_blink", "duration": 4 } ],
+      "overlays": [ { "type": "label", "text": "THE THING", "anchor": "hero", "start": 1.0 } ],
+      "sfx": [ { "t": 1.0, "name": "pop" } ]
+    },
+    {
+      "id": "outro",
+      "duration": 4.0,
+      "narration": "Tease the next episode.",
+      "camera": { "orbit": { "center": [3, 0, 1], "radius": 22, "height": 12, "start": -100, "end": -75, "lens": 30 } },
+      "overlays": [ { "type": "title", "text": "Next: *TOPIC*", "box": true, "start": 0.4 } ],
+      "sfx": [ { "t": 0.4, "name": "ding" } ]
+    }
+  ]
+}
