@@ -66,6 +66,7 @@ docs/                    SETUP, BLENDER_MCP, EPISODE_FORMAT, SCENES
 - [docs/EPISODE_FORMAT.md](docs/EPISODE_FORMAT.md): every field in an episode JSON
 - [docs/SCENES.md](docs/SCENES.md): writing 3D scenes in Python, and where assets come from
 - [docs/BLENDER_MCP.md](docs/BLENDER_MCP.md): letting Claude drive a live Blender window
+- [docs/ROADMAP_CHARACTERS.md](docs/ROADMAP_CHARACTERS.md): plan for character cartoons (phase 2)
 
 ## Status
 - Episode 1 (traffic cameras) is scripted and has a scene. The narration is a placeholder until it's fact-checked.
